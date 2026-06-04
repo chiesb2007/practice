@@ -308,6 +308,77 @@
       box-shadow: 0 20px 60px rgba(124,58,237,0.1);
     }
 
+    /* ─── CAREER TABLE ─── */
+    .career-wrap {
+      max-width: 1100px;
+      margin: 4rem auto 0;
+    }
+
+    .career-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .career-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .career-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .career-table tr:last-child { border-bottom: none; }
+
+    .career-table td {
+      padding: 1.4rem 1rem;
+      vertical-align: top;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .career-table .year {
+      white-space: nowrap;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent2);
+      letter-spacing: 0.04em;
+      width: 14%;
+      padding-right: 1.5rem;
+    }
+
+    .career-table .company {
+      width: 22%;
+      font-weight: 700;
+      color: var(--text);
+      padding-right: 1.5rem;
+    }
+
+    .career-table .company .position {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .career-table .detail p {
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .career-table, .career-table tbody,
+      .career-table tr, .career-table td { display: block; width: 100%; }
+      .career-table td { padding: 0.5rem 0; }
+      .career-table tr { padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+      .career-table .year { color: var(--accent2); font-size: 0.75rem; }
+    }
+
     .skill-card-title {
       font-size: 0.7rem;
       letter-spacing: 0.14em;
@@ -354,83 +425,165 @@
     /* ─── PROJECTS ─── */
     #projects { padding: 8rem 2rem; }
 
-    .projects-grid {
+    .works-grid {
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
 
-    .project-card {
+    .work-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 20px;
       overflow: hidden;
       transition: all 0.3s;
       position: relative;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
-    .project-card:hover {
+    .work-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-      border-color: rgba(6,182,212,0.3);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      border-color: rgba(124,58,237,0.35);
     }
 
-    .project-thumb {
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-thumb::after {
-      content: '';
+    .image-label {
       position: absolute;
-      inset: 0;
-      opacity: 0.15;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 2;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+    .label-corporate {
+      background: rgba(124,58,237,0.75);
+      color: #fff;
+      backdrop-filter: blur(4px);
     }
 
-    .thumb-1 { background: linear-gradient(135deg, #1e1b4b, #312e81); }
-    .thumb-1::after { background: radial-gradient(circle at 30% 50%, #7c3aed, transparent 60%); }
-    .thumb-2 { background: linear-gradient(135deg, #0c1a2e, #0f3460); }
-    .thumb-2::after { background: radial-gradient(circle at 70% 30%, #06b6d4, transparent 60%); }
-    .thumb-3 { background: linear-gradient(135deg, #1a0a00, #3b1f00); }
-    .thumb-3::after { background: radial-gradient(circle at 50% 70%, #f59e0b, transparent 60%); }
+    .works-detail-img {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    .works-detail-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .work-card:hover .works-detail-img img {
+      transform: scale(1.04);
+    }
 
-    .project-body { padding: 1.5rem; }
-    .project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .works-detail-txt { padding: 1.25rem 1.4rem 1.4rem; }
+
+    .workscard-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      line-height: 1.5;
+    }
+
+    .works-detail-txt p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .label-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 0.75rem; }
+    .mb-1 { margin-bottom: 0.5rem; }
+
     .tag {
-      padding: 0.2rem 0.65rem;
+      padding: 0.18rem 0.6rem;
       border-radius: 999px;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.03em;
     }
-    .tag-purple { background: rgba(124,58,237,0.15); color: #a78bfa; }
-    .tag-cyan   { background: rgba(6,182,212,0.15);  color: #67e8f9; }
-    .tag-amber  { background: rgba(245,158,11,0.15); color: #fcd34d; }
-    .tag-green  { background: rgba(34,197,94,0.15);  color: #86efac; }
+    .tag-direction { background: rgba(124,58,237,0.15); color: #c4b5fd; }
+    .tag-design    { background: rgba(6,182,212,0.15);  color: #67e8f9; }
+    .tag-dev       { background: rgba(34,197,94,0.15);  color: #86efac; }
+    .tag-graphic   { background: rgba(245,158,11,0.15); color: #fcd34d; }
+    .tag-wp        { background: rgba(59,130,246,0.15); color: #93c5fd; }
 
-    .project-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .project-desc  { font-size: 0.87rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
-
-    .project-links { display: flex; gap: 0.75rem; }
-    .link-btn {
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
+    .card-shine {
+      position: absolute;
+      top: 0; left: -100%;
+      width: 55%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+      transform: skewX(-18deg);
+      transition: left 0.55s ease;
+      pointer-events: none;
     }
-    .link-demo  { background: rgba(124,58,237,0.2); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3); }
-    .link-demo:hover { background: rgba(124,58,237,0.4); }
-    .link-code  { background: transparent; color: var(--muted); border: 1px solid var(--border); }
-    .link-code:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .work-card:hover .card-shine { left: 160%; }
+
+    /* ─── OTHER WORKS (small cards) ─── */
+    .other-works-grid {
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .other-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .other-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      border-color: rgba(124,58,237,0.3);
+    }
+
+    .other-card-img {
+      width: 100%;
+      height: 140px;
+      overflow: hidden;
+    }
+    .other-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .other-card:hover .other-card-img img { transform: scale(1.05); }
+
+    .other-card-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.75rem 0.9rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .works-grid { grid-template-columns: 1fr; }
+      .other-works-grid { grid-template-columns: repeat(2, 1fr); }
+    }
 
     /* ─── CONTACT ─── */
     #contact {
@@ -606,7 +759,9 @@
     <div class="about-grid">
       <div class="avatar-wrap">
         <div class="avatar-ring">
-          <div class="avatar-inner">👨‍💻</div>
+          <div class="avatar-inner">
+            <img src="https://chi-portfolio.deci.jp/portfolio2025/wp-content/themes/chie-portfolio/assets/images/my.webp" alt="Chie Wakayama" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+          </div>
         </div>
       </div>
       <div class="about-text">
@@ -628,6 +783,59 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="career-wrap reveal">
+      <div class="career-label">/ Career</div>
+      <table class="career-table">
+        <tbody>
+          <tr>
+            <td class="year">2025.01 - 現在</td>
+            <td class="company">株式会社kubellパートナー<br>
+              <p class="position">WEBデザイナー・コーダー<br>（業務委託）</p>
+            </td>
+            <td class="detail">
+              <p>Chatworkを運営する株式会社kubellのグループ会社にて、発足直後の制作チームに所属。ディレクター不在の環境の中、案件紹介後は自走する形で制作を担当。クライアントとの打ち合わせに参加し、提案資料ややり取り文章の作成も担いながら、ワイヤーフレーム設計・デザイン・WordPress実装まで一貫して対応。サーバー移管から納品後の運用マニュアル作成、既存サイト改修、保守運用にも従事。月平均10件以上の制作・改修案件を並行して進行。うち新規サイト制作は3件を担当。</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="year">2024.09 - 現在</td>
+            <td class="company">株式会社SAMURAI<br>
+              <p class="position">Web制作インストラクター<br>（業務委託・副業）</p>
+            </td>
+            <td class="detail">
+              <p>Web制作初学者へのマンツーマン指導を担当。デザイン基礎からWordPress実装まで支援。</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="year">2023.04 - 2024.12</td>
+            <td class="company">株式会社デザシス<br>
+              <p class="position">WEBデザイナー・コーダー<br>（パート）</p>
+            </td>
+            <td class="detail">
+              <p>整骨院業界に特化したWeb制作会社にて、広告運用と連動したLP・Webサイト制作を担当。SNS広告流入を前提としたLP構成設計を学び、コンバージョンを意識したコンテンツ設計に基づきデザイン・実装を担当。マーケティングチームからのフィードバックを受けながら、訴求力・反応率を意識したデザイン設計を習得。そのほか、WordPress実装および社内業務改善としてkintone構築にも従事。</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="year">2022.04 - 2023.03</td>
+            <td class="company">アクセスネット（個人事業主）<br>
+              <p class="position">WEBデザイナー・コーダー</p>
+            </td>
+            <td class="detail">
+              <p>プログラミングスクールでの学習後、制作したポートフォリオが評価され未経験から採用。従業員3名の小規模Web制作会社にて、WordPressをメインとしたホームページのデザイン・コーディング・実装を担当。IllustratorやWordPressを実務の中で習得しながら、個人事業主案件への参加を通じて実践的なWeb制作を経験。</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="year">2019.09 - 2022.10</td>
+            <td class="company">株式会社カミタケモータース<br>
+              <p class="position">事務（パート）</p>
+            </td>
+            <td class="detail">
+              <p>求人広告運用や事務業務を担当。業務改善としてkintone構築を担当し、IT分野へ関心を深める。</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -742,60 +950,300 @@
   <div style="max-width:1100px;margin:0 auto;" class="reveal">
     <div class="section-label">/ Projects</div>
     <div class="section-title">Selected work</div>
-    <div class="projects-grid">
+    <div class="works-grid">
 
-      <div class="project-card">
-        <div class="project-thumb thumb-1">🚀</div>
-        <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-purple">Next.js</span>
-            <span class="tag tag-cyan">TypeScript</span>
-            <span class="tag tag-green">AI</span>
+      <a href="#" class="work-card">
+        <span class="image-label label-corporate">コーポレートサイト</span>
+        <div class="works-detail-img mb-1">
+          <img src="http://chi-portfolio.deci.jp/portfolio2025/wp-content/uploads/2026/05/HP01.webp" alt="コーポレーサイトTOPページ" loading="lazy">
+        </div>
+        <div class="works-detail-txt">
+          <h3 class="workscard-title">製造業コーポレートサイト再構築プロジェクト</h3>
+          <p class="mt-1">情報設計とWordPress実装により、営業活動を支えるWeb基盤へ刷新。</p>
+          <div class="label-group">
+            <span class="tag tag-direction">ワイヤーフレーム</span>
+            <span class="tag tag-design">デザイン</span>
+            <span class="tag tag-dev">コーディング</span>
           </div>
-          <div class="project-title">Lumina — AIライティングツール</div>
-          <div class="project-desc">GPT-4 + Claude APIを組み合わせたコンテンツ生成プラットフォーム。リアルタイムコラボ機能搭載で月間5,000 MAU達成。</div>
-          <div class="project-links">
-            <span class="link-btn link-demo">Live Demo</span>
-            <span class="link-btn link-code">GitHub</span>
+          <div class="label-group mt-1">
+            <span class="tag tag-design">Figma</span>
+            <span class="tag tag-graphic">Illustrator</span>
+            <span class="tag tag-graphic">Photoshop</span>
+            <span class="tag tag-dev">HTML/CSS</span>
+            <span class="tag tag-dev">JavaScript</span>
+            <span class="tag tag-wp">WordPress</span>
           </div>
         </div>
-      </div>
+        <span class="card-shine"></span>
+      </a>
 
-      <div class="project-card">
-        <div class="project-thumb thumb-2">📊</div>
-        <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-cyan">React</span>
-            <span class="tag tag-amber">Rust</span>
-            <span class="tag tag-purple">WebSocket</span>
+      <a href="#" class="work-card">
+        <span class="image-label label-corporate">ランディングページ</span>
+        <div class="works-detail-img mb-1">
+          <img src="http://chi-portfolio.deci.jp/portfolio2025/wp-content/uploads/2026/05/project02-1-scaled.webp" alt="コーポレーサイトTOPページ２" loading="lazy">
+        </div>
+        <div class="works-detail-txt">
+          <h3 class="workscard-title">美容室・飲食店向け 記帳代行サービスLP</h3>
+          <p class="mt-1">SEOを前提に設計し、「マネーフォワード 美容院」で検索1位を獲得。</p>
+          <div class="label-group">
+            <span class="tag tag-direction">ワイヤーフレーム</span>
+            <span class="tag tag-design">デザイン</span>
+            <span class="tag tag-dev">コーディング</span>
           </div>
-          <div class="project-title">FlowBoard — リアルタイム分析</div>
-          <div class="project-desc">秒間10万イベントを処理するRust製バックエンドと、D3.jsで構築したリアルタイムダッシュボード。</div>
-          <div class="project-links">
-            <span class="link-btn link-demo">Live Demo</span>
-            <span class="link-btn link-code">GitHub</span>
+          <div class="label-group mt-1">
+            <span class="tag tag-design">Figma</span>
+            <span class="tag tag-dev">HTML/CSS</span>
+            <span class="tag tag-dev">JavaScript</span>
+            <span class="tag tag-wp">WordPress</span>
           </div>
         </div>
-      </div>
+        <span class="card-shine"></span>
+      </a>
 
-      <div class="project-card">
-        <div class="project-thumb thumb-3">🌐</div>
-        <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-amber">Solidity</span>
-            <span class="tag tag-green">Web3</span>
-            <span class="tag tag-cyan">React</span>
+      <a href="#" class="work-card">
+        <span class="image-label label-corporate">ランディングページ</span>
+        <div class="works-detail-img mb-1">
+          <img src="https://chi-portfolio.deci.jp/portfolio2025/wp-content/themes/chie-portfolio/assets/images/project03-1.webp" alt="コーポレートサイトTOPページ２" loading="lazy">
+        </div>
+        <div class="works-detail-txt">
+          <h3 class="workscard-title">アメコミ世界観で魅せるスクールLP制作</h3>
+          <p class="mt-1">ターゲット心理を捉えた入口設計とビジュアル表現。</p>
+          <div class="label-group">
+            <span class="tag tag-direction">ワイヤーフレーム</span>
+            <span class="tag tag-design">デザイン</span>
+            <span class="tag tag-dev">コーディング</span>
           </div>
-          <div class="project-title">NexDAO — DAOガバナンス基盤</div>
-          <div class="project-desc">オンチェーン投票・プロポーザル管理・マルチシグウォレット統合を一体化したWeb3ガバナンスプロトコル。</div>
-          <div class="project-links">
-            <span class="link-btn link-demo">Live Demo</span>
-            <span class="link-btn link-code">GitHub</span>
+          <div class="label-group mt-1">
+            <span class="tag tag-design">Figma</span>
+            <span class="tag tag-graphic">Illustrator</span>
+            <span class="tag tag-graphic">Photoshop</span>
+            <span class="tag tag-dev">HTML/CSS</span>
+            <span class="tag tag-wp">WordPress</span>
           </div>
         </div>
+        <span class="card-shine"></span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="image-label label-corporate">コーポレートサイト一部改修</span>
+        <div class="works-detail-img mb-1">
+          <img src="http://chi-portfolio.deci.jp/portfolio2025/wp-content/uploads/2026/05/project04-2-scaled.webp" alt="コーポレーサイトTOPページ２" loading="lazy">
+        </div>
+        <div class="works-detail-txt">
+          <h3 class="workscard-title">CVR1.8倍を実現したサイト改善</h3>
+          <p class="mt-1">限られた改修範囲で成果を最大化したTOPページ再設計。</p>
+          <div class="label-group">
+            <span class="tag tag-direction">ワイヤーフレーム</span>
+            <span class="tag tag-design">デザイン</span>
+            <span class="tag tag-dev">コーディング</span>
+          </div>
+          <div class="label-group mt-1">
+            <span class="tag tag-design">Figma</span>
+            <span class="tag tag-graphic">Illustrator</span>
+            <span class="tag tag-graphic">Photoshop</span>
+            <span class="tag tag-dev">HTML/CSS</span>
+            <span class="tag tag-dev">JavaScript</span>
+            <span class="tag tag-wp">WordPress</span>
+          </div>
+        </div>
+        <span class="card-shine"></span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="image-label label-corporate">コーポレートサイト</span>
+        <div class="works-detail-img mb-1">
+          <img src="https://chi-portfolio.deci.jp/portfolio2025/wp-content/themes/chie-portfolio/assets/images/hp05-1.webp" alt="コーポレーサイトTOPページ２" loading="lazy">
+        </div>
+        <div class="works-detail-txt">
+          <h3 class="workscard-title">福岡・博多エリアゲストハウスHP制作</h3>
+          <div class="label-group mt-2">
+            <span class="tag tag-direction">ワイヤーフレーム</span>
+            <span class="tag tag-design">デザイン</span>
+            <span class="tag tag-dev">コーディング</span>
+          </div>
+          <div class="label-group mt-1">
+            <span class="tag tag-design">Figma</span>
+            <span class="tag tag-graphic">Photoshop</span>
+            <span class="tag tag-dev">HTML/CSS</span>
+            <span class="tag tag-dev">JavaScript</span>
+            <span class="tag tag-wp">WordPress</span>
+          </div>
+        </div>
+        <span class="card-shine"></span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="image-label label-corporate">コーポレートサイト</span>
+        <div class="works-detail-img mb-1">
+          <img src="https://chi-portfolio.deci.jp/portfolio2025/wp-content/themes/chie-portfolio/assets/images/hp06-1.webp" alt="コーポレーサイトTOPページ２" loading="lazy">
+        </div>
+        <div class="works-detail-txt">
+          <h3 class="workscard-title">デイサービス・介護施設HP制作</h3>
+          <div class="label-group mt-2">
+            <span class="tag tag-direction">ワイヤーフレーム</span>
+            <span class="tag tag-design">デザイン</span>
+            <span class="tag tag-dev">コーディング</span>
+          </div>
+          <div class="label-group mt-1">
+            <span class="tag tag-design">Figma</span>
+            <span class="tag tag-dev">HTML/CSS</span>
+            <span class="tag tag-dev">JavaScript</span>
+            <span class="tag tag-wp">WordPress</span>
+          </div>
+        </div>
+        <span class="card-shine"></span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="image-label label-corporate">コーポレートサイト</span>
+        <div class="works-detail-img mb-1">
+          <img src="http://chi-portfolio.deci.jp/portfolio2025/wp-content/uploads/2026/05/Slice-1.webp" alt="コーポレートサイトTOPページ２" loading="lazy">
+        </div>
+        <div class="works-detail-txt">
+          <h3 class="workscard-title">IT企業コーポレートサイト制作</h3>
+          <div class="label-group mt-2">
+            <span class="tag tag-direction">ワイヤーフレーム</span>
+            <span class="tag tag-design">デザイン</span>
+            <span class="tag tag-dev">コーディング</span>
+          </div>
+          <div class="label-group mt-1">
+            <span class="tag tag-design">Figma</span>
+            <span class="tag tag-graphic">Illustrator</span>
+            <span class="tag tag-graphic">Photoshop</span>
+            <span class="tag tag-dev">HTML/CSS</span>
+            <span class="tag tag-dev">JavaScript</span>
+            <span class="tag tag-wp">WordPress</span>
+          </div>
+        </div>
+        <span class="card-shine"></span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="image-label label-corporate">コーポレートサイト</span>
+        <div class="works-detail-img mb-1">
+          <img src="https://chi-portfolio.deci.jp/portfolio2025/wp-content/themes/chie-portfolio/assets/images/hp08-1.webp" alt="コーポレーサイトTOPページ２" loading="lazy">
+        </div>
+        <div class="works-detail-txt">
+          <h3 class="workscard-title">幼稚園HP制作</h3>
+          <div class="label-group mt-2">
+            <span class="tag tag-direction">ワイヤーフレーム</span>
+            <span class="tag tag-design">デザイン</span>
+            <span class="tag tag-dev">コーディング</span>
+          </div>
+          <div class="label-group mt-1">
+            <span class="tag tag-design">Figma</span>
+            <span class="tag tag-graphic">Illustrator</span>
+            <span class="tag tag-dev">HTML/CSS</span>
+            <span class="tag tag-dev">JavaScript</span>
+            <span class="tag tag-wp">WordPress</span>
+          </div>
+        </div>
+        <span class="card-shine"></span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="image-label label-corporate">コーポレートサイト</span>
+        <div class="works-detail-img mb-1">
+          <img src="http://chi-portfolio.deci.jp/portfolio2025/wp-content/uploads/2026/05/kamitta-top.webp" alt="TOPページ" loading="lazy">
+        </div>
+        <div class="works-detail-txt">
+          <h3 class="workscard-title">不動産会社HP制作</h3>
+          <div class="label-group mt-2">
+            <span class="tag tag-design">デザイン</span>
+            <span class="tag tag-dev">コーディング</span>
+          </div>
+          <div class="label-group mt-1">
+            <span class="tag tag-design">Figma</span>
+            <span class="tag tag-dev">HTML/CSS</span>
+            <span class="tag tag-dev">JavaScript</span>
+            <span class="tag tag-wp">Goope</span>
+          </div>
+        </div>
+        <span class="card-shine"></span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="image-label label-corporate">ランディングページ</span>
+        <div class="works-detail-img mb-1">
+          <img src="http://chi-portfolio.deci.jp/portfolio2025/wp-content/uploads/2026/05/m-slu.webp" alt="TOPページ" loading="lazy">
+        </div>
+        <div class="works-detail-txt">
+          <h3 class="workscard-title">kintoneプラグイン紹介LP</h3>
+          <div class="label-group mt-2">
+            <span class="tag tag-design">デザイン</span>
+            <span class="tag tag-dev">コーディング</span>
+          </div>
+          <div class="label-group mt-1">
+            <span class="tag tag-design">Figma</span>
+            <span class="tag tag-dev">HTML/CSS</span>
+            <span class="tag tag-dev">JavaScript</span>
+            <span class="tag tag-wp">WordPress</span>
+          </div>
+        </div>
+        <span class="card-shine"></span>
+      </a>
+
+    </div><!-- /works-grid -->
+
+    <div class="other-works-grid">
+
+      <div class="other-card">
+        <span class="image-label label-corporate">チラシ</span>
+        <div class="other-card-img">
+          <img src="http://chi-portfolio.deci.jp/portfolio2025/wp-content/uploads/2026/05/tirashi-scaled.webp" alt="採用活動用チラシ" loading="lazy">
+        </div>
+        <div class="other-card-title">採用活動用チラシ</div>
       </div>
 
-    </div>
+      <div class="other-card">
+        <span class="image-label label-corporate">サムネイル</span>
+        <div class="other-card-img">
+          <img src="https://chi-portfolio.deci.jp/portfolio2025/wp-content/themes/chie-portfolio/assets/images/siryo.webp" alt="ブログ用アイキャッチ画像" loading="lazy">
+        </div>
+        <div class="other-card-title">ブログ用アイキャッチ画像</div>
+      </div>
+
+      <div class="other-card">
+        <span class="image-label label-corporate">HP</span>
+        <div class="other-card-img">
+          <img src="https://chi-portfolio.deci.jp/portfolio2025/wp-content/themes/chie-portfolio/assets/images/batu-web2.webp" alt="別案デザイン" loading="lazy">
+        </div>
+        <div class="other-card-title">別案デザイン</div>
+      </div>
+
+      <div class="other-card">
+        <span class="image-label label-corporate">HP</span>
+        <div class="other-card-img">
+          <img src="https://chi-portfolio.deci.jp/portfolio2025/wp-content/themes/chie-portfolio/assets/images/batu-web1.webp" alt="別案デザイン" loading="lazy">
+        </div>
+        <div class="other-card-title">別案デザイン</div>
+      </div>
+
+      <div class="other-card">
+        <span class="image-label label-corporate">グラフィック</span>
+        <div class="other-card-img">
+          <img src="http://chi-portfolio.deci.jp/portfolio2025/wp-content/uploads/2026/05/webgraphi.webp" alt="企業ポリシー図解" loading="lazy">
+        </div>
+        <div class="other-card-title">企業ポリシー図解（2案）</div>
+      </div>
+
+      <div class="other-card">
+        <span class="image-label label-corporate">グラフィック</span>
+        <div class="other-card-img">
+          <img src="http://chi-portfolio.deci.jp/portfolio2025/wp-content/uploads/2026/05/powerpoint.webp" alt="パワポ図解" loading="lazy">
+        </div>
+        <div class="other-card-title">営業資料内グラフィック</div>
+      </div>
+
+      <div class="other-card">
+        <span class="image-label label-corporate">チラシ</span>
+        <div class="other-card-img">
+          <img src="http://chi-portfolio.deci.jp/portfolio2025/wp-content/uploads/2026/05/chirashi2.webp" alt="チラシ" loading="lazy">
+        </div>
+        <div class="other-card-title">不用品改修業者様チラシ</div>
+      </div>
+
+    </div><!-- /other-works-grid -->
   </div>
 </section>
 
@@ -826,12 +1274,6 @@
       </div>
       <button type="submit" class="btn-submit">送信する ✦</button>
     </form>
-    <div class="social-row">
-      <span class="social-btn" title="GitHub">🐙</span>
-      <span class="social-btn" title="Twitter">🐦</span>
-      <span class="social-btn" title="LinkedIn">💼</span>
-      <span class="social-btn" title="Zenn">📝</span>
-    </div>
   </div>
 </section>
 
